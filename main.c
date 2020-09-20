@@ -43,7 +43,9 @@ int fanPin = 0;         // (pin) The GPIO pin you're using to control the fan.
 int sleepTime = 30;     // (seconds) How often to check the core temperature.
 
 int onTemp = 62;        // (degrees Celsius) Fan turns on at this temperature.
-int offTemp = 52;       // (degress Celsius) Fan shuts off at this temperature.
+
+// Note: The Raspberry Pi 4 seems to idle at around 56°c, keep offTemp below this.
+int offTemp = 58;       // (degress Celsius) Fan shuts off at this temperature.
 
 /*******************************************************************************/
 
