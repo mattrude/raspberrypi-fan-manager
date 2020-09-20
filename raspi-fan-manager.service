@@ -1,0 +1,13 @@
+[Unit]
+Description=Raspberry Pi Fan Manager
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=start-stop-daemon --start --background --make-pidfile --pidfile /run/raspi-fan-manager.pid --exec /usr/local/bin/raspi-fan-manager
+PIDFile=/run/raspi-fan-manager.pid
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
