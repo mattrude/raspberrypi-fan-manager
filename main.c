@@ -44,7 +44,7 @@ int sleepTime = 30;     // (seconds) How often to check the core temperature.
 
 int onTemp = 62;        // (degrees Celsius) Fan turns on at this temperature.
 
-// Note: The Raspberry Pi 4 seems to idle at around 56°c, keep offTemp below this.
+// Note: The Raspberry Pi 4 seems to idle at around 56°c, keep offTemp above this.
 int offTemp = 58;       // (degress Celsius) Fan shuts off at this temperature.
 
 /*******************************************************************************/
