@@ -34,7 +34,15 @@ make
 sudo make install
 ```
 
-There are two ways of confirming that the new software is running
+## Confirming the software was build correctly
+
+The `make install` command installs systemd service for running the fan manager, this will also have the fan manager load at system boot.  There are three ways of confirming that the fan manager software is running:
+
+* System Status
+
+```
+systemctl status raspi-fan-manager.service
+```
 
 * View the logs
 
