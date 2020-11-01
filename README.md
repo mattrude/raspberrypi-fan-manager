@@ -26,7 +26,7 @@ Building & installling the *raspberrypi-fan-manager* is accomplshed the by comil
 The part most people have problem with is installing the required dependencies.  The *raspberrypi-fan-manager* only requires *wiringpi* to be installed on most systems, but to make sure that most people can install the program, we will walk though the full install.
 
 
-## Installing Required dependencies
+### Installing Required dependencies
 
 As we talked about above, *git*, *gcc*, & *make* should already be installed on your system, but just incase we will ask to have it installed again.  If a dependencie is already installed, it will simply be skipped by *apt* automatically.
 
@@ -36,7 +36,7 @@ Run the following command, make sure to choose **Y** when asked to confirm your 
 sudo apt install git gcc make wiringpi
 ```
 
-## Download the source code
+### Download the source code
 
 After the dependencies are installed, we can download the source code from [github](https://github.com/mattrude/raspberrypi-fan-manager).
 
@@ -47,7 +47,7 @@ cd
 sudo git clone git@github.com:mattrude/raspberrypi-fan-manager.git
 ```
 
-## Build & install the software
+### Build & install the software
 
 Now for the fun part, building the source code and installing the resulting file on your system.
 
