@@ -21,20 +21,50 @@ set before compiling.
 
 ## Build Instructions
 
-* Required libraries
+Building & installling the *raspberrypi-fan-manager* is accomplshed the by comiling the source code and installing the resulting program on your Raspberry Pi.  although this may sound like a dounting task, in reality, its pretty simple.
+
+The part most people have problem with is installing the required dependencies.  The *raspberrypi-fan-manager* only requires *wiringpi* to be installed on most systems, but to make sure that most people can install the program, we will walk though the full install.
+
+
+## Installing Required dependencies
+
+As we talked about above, *git*, *gcc*, & *make* should already be installed on your system, but just incase we will ask to have it installed again.  If a dependencie is already installed, it will simply be skipped by *apt* automatically.
+
+Run the following command, make sure to choose **Y** when asked to confirm your selection during the install.
 
 ```
-sudo apt install wiringpi
+sudo apt install git gcc make wiringpi
 ```
 
-* Build & install the software
+## Download the source code
+
+After the dependencies are installed, we can download the source code from [github](https://github.com/mattrude/raspberrypi-fan-manager).
+
+For this README file, we are going to download the source code into your home directory, but you may change that to where ever you wish.  After the install is finished, you may delete the source code.
+
+```
+cd
+sudo git clone git@github.com:mattrude/raspberrypi-fan-manager.git
+```
+
+## Build & install the software
+
+Now for the fun part, building the source code and installing the resulting file on your system.
+
+You first need to make sure you are in the new folder that was created during the previous step.  If you followed the directions above directly, your source code will now be at **~/raspberrypi-fan-manager**, so you make go into that directory by running
+
+```
+cd ~/raspberrypi-fan-manager
+```
+
+Once inside the source directory, run the build proccess by running the following commands.
 
 ```
 make
 sudo make install
 ```
 
-## Confirming the software was build correctly
+## Confirming the software was built & is now running
 
 The `make install` command installs systemd service for running the fan manager, this will also have the fan manager load at system boot.  There are three ways of confirming that the fan manager software is running:
 
