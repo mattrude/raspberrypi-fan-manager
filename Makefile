@@ -1,6 +1,6 @@
 PROJ=raspi-fan-manager
 CC=cc
-SRC=main.c
+SRC=raspi-fan-manager.c
 INSTALL = /usr/bin/install -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_FILE = $(INSTALL) -m 0644

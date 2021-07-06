@@ -43,7 +43,7 @@ int fanPin = 0;         // (pin) The GPIO pin you're using to control the fan.
 int sleepTime = 5;      // (seconds) How often to check the core temperature.
 
 int onTemp = 52;        // (degrees Celsius) Fan turns on at this temperature.
-int offTemp = 48;       // (degress Celsius) Fan shuts off at this temperature.
+int offTemp = 45;       // (degress Celsius) Fan shuts off at this temperature.
 
 /*******************************************************************************/
 
