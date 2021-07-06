@@ -1,4 +1,4 @@
-# Raspberry PI Fan Manager - Version 0.1.2
+# Raspberry PI Fan Manager - Version 0.1.3
 
 Copyright 2021 Matt Rude <matt@mattrude.com>
 
