@@ -1,6 +1,6 @@
 /* *****************************************************************************
- * Raspberry Pi Fan Manager - Version 0.1.1 - 2020-09-20
- * Copyright 2020 Matt Rude <matt@mattrude.com>
+ * Raspberry Pi Fan Manager - Version 0.1.2 - 2021-02-15
+ * Copyright 2021 Matt Rude <matt@mattrude.com>
  *
  * *****************************************************************************
  *
@@ -40,12 +40,10 @@
 
 // See http://wiringpi.com/pins/ for the WiringPi pinout.
 int fanPin = 0;         // (pin) The GPIO pin you're using to control the fan.
-int sleepTime = 30;     // (seconds) How often to check the core temperature.
+int sleepTime = 5;      // (seconds) How often to check the core temperature.
 
-int onTemp = 62;        // (degrees Celsius) Fan turns on at this temperature.
-
-// Note: The Raspberry Pi 4 seems to idle at around 56°c, keep offTemp above this.
-int offTemp = 58;       // (degress Celsius) Fan shuts off at this temperature.
+int onTemp = 52;        // (degrees Celsius) Fan turns on at this temperature.
+int offTemp = 48;       // (degress Celsius) Fan shuts off at this temperature.
 
 /*******************************************************************************/
 
@@ -73,16 +71,17 @@ int main() {
 
     // Create a 'thermal' file to read the actual temp file with
     FILE *thermal;
-    
+
     openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-    syslog (LOG_INFO, "Starting: raspi-fan-manager - Version: 0.1.1");
+    syslog (LOG_INFO, "Starting: raspi-fan-manager - Version: 0.1.2");
     syslog (LOG_INFO, "https://github.com/mattrude/raspberrypi-fan-manager/");
+    syslog (LOG_INFO, "Fan on Temp: %d   Fan off Temp: %d\n",onTemp,offTemp);
     closelog ();
 
     // Check to make sure the on temp is highter then the off temp
     if ( offTemp >= onTemp ) {
         printf("raspi-fan-manager Error: the 'onTemp' is lower or the same as 'offTemp', this just wont work\n");
-        printf("onTemp: %d, offTemp: %d\n",onTemp,offTemp);
+        printf("Fan on Temp: %d°c, Fan off Temp: %d°c\n",onTemp,offTemp);
 
         openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
         syslog (LOG_ERR, "Error: the 'onTemp' is lower or the same as 'offTemp', this just wont work");
@@ -107,7 +106,7 @@ int main() {
 
             // Send message to syslog that the fan is now running
             openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-            syslog (LOG_INFO, "CPU is running hot at %f, starting fan.",sysTemp);
+            syslog (LOG_INFO, "CPU is running hot at %f°c, starting fan.",sysTemp);
             closelog ();
 
             // Set the 'fanRunning' varible to True
@@ -121,7 +120,7 @@ int main() {
 
             // Send message to syslog that the fan is no longer running
             openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-            syslog (LOG_INFO, "CPU is running cool again at %f, stopping fan.",sysTemp);
+            syslog (LOG_INFO, "CPU is running cool at %f°c, stopping fan.",sysTemp);
             closelog ();
 
             // Set the 'fanRunning' varible to False
