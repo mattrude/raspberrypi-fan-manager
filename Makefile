@@ -13,7 +13,6 @@ install:
 	$(INSTALL_PROG) $(PROJ) /usr/local/bin/
 	$(INSTALL_FILE) ${PROJ}.service /etc/systemd/system/${PROJ}.service
 	${SYSTEMCTL} enable ${PROJ}.service
-	${SYSTEMCTL} start ${PROJ}.service
 
 clean:
 	rm $(PROJ)
