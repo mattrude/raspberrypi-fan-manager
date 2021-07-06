@@ -75,7 +75,7 @@ int main() {
     openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
     syslog (LOG_INFO, "Starting: raspi-fan-manager - Version: 0.1.3");
     syslog (LOG_INFO, "https://github.com/mattrude/raspberrypi-fan-manager/");
-    syslog (LOG_INFO, "Fan on Temp: %d   Fan off Temp: %d\n",onTemp,offTemp);
+    syslog (LOG_INFO, "Fan on Temp: %d - Fan off Temp: %d - I/O Pin: %d\n",onTemp,offTemp,fanPin);
     closelog ();
 
     // Check to make sure the on temp is highter then the off temp
