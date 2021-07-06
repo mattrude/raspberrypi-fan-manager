@@ -1,6 +1,6 @@
-# Raspberry PI Fan Manager - Version 0.1.1
+# Raspberry PI Fan Manager - Version 0.1.2
 
-Copyright 2020 Matt Rude <matt@mattrude.com>
+Copyright 2021 Matt Rude <matt@mattrude.com>
 
 This is a small program written in c that monitors the CPU temperature,
 turns on an installed fan if the temperature reaches a set limit, then turns
@@ -15,8 +15,8 @@ set before compiling.
   * *(See: http://wiringpi.com/pins/ for the WiringPi pinout.)*
 * **sleepTime** (Default: 30) - (seconds) How often to check the core temperature.
 
-* **onTem** (Default: 62) -  (in degrees Celsius) Fan turns on at this temperature.
-* **offTemp** (Default: 52) - (in degress Celsius) Fan shuts off at this temperature.
+* **onTem** (Default: 52) -  (in degrees Celsius) Fan turns on at this temperature.
+* **offTemp** (Default: 48) - (in degress Celsius) Fan shuts off at this temperature.
 
 
 ## Build Instructions
