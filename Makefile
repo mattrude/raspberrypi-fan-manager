@@ -7,7 +7,7 @@ INSTALL_FILE = $(INSTALL) -m 0644
 SYSTEMCTL = /bin/systemctl
 
 all:
-	$(CC) -g -Wall -std=c17 $(SRC) -lwiringPi -o $(PROJ)
+	$(CC) -g -Wall -std=c99 $(SRC) -lwiringPi -o $(PROJ)
 
 install:
 	$(INSTALL_PROG) $(PROJ) /usr/local/bin/
