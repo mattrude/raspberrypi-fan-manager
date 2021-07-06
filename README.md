@@ -44,7 +44,7 @@ For this README file, we are going to download the source code into your home di
 
 ```
 cd
-sudo git clone git@github.com:mattrude/raspberrypi-fan-manager.git
+git clone git@github.com:mattrude/raspberrypi-fan-manager.git
 ```
 
 ### Build & install the software
@@ -61,6 +61,11 @@ Once inside the source directory, run the build proccess by running the followin
 
 ```
 make
+```
+
+After you have completed building the code, install it with.
+
+```
 sudo make install
 ```
 
