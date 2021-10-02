@@ -1,5 +1,5 @@
 /* *****************************************************************************
- * Raspberry Pi Fan Manager - Version 0.1.3 - 2021-07-05
+ * Raspberry Pi Fan Manager - Version 0.1.4 - 2021-10-02
  * Copyright 2021 Matt Rude <matt@mattrude.com>
  *
  * *****************************************************************************
@@ -73,7 +73,7 @@ int main() {
     FILE *thermal;
 
     openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-    syslog (LOG_INFO, "Starting: raspi-fan-manager - Version: 0.1.3");
+    syslog (LOG_INFO, "Starting: raspi-fan-manager - Version: 0.1.4");
     syslog (LOG_INFO, "https://github.com/mattrude/raspberrypi-fan-manager/");
     syslog (LOG_INFO, "Fan on Temp: %d - Fan off Temp: %d - I/O Pin: %d\n",onTemp,offTemp,fanPin);
     closelog ();
@@ -106,7 +106,7 @@ int main() {
 
             // Send message to syslog that the fan is now running
             openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-            syslog (LOG_INFO, "CPU is running hot at %f°c, starting fan.",sysTemp);
+            syslog (LOG_INFO, "CPU is running hot at %2.2f°c, starting fan.",sysTemp);
             closelog ();
 
             // Set the 'fanRunning' varible to True
@@ -120,7 +120,7 @@ int main() {
 
             // Send message to syslog that the fan is no longer running
             openlog ("raspi-fan-manager", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
-            syslog (LOG_INFO, "CPU is running cool at %f°c, stopping fan.",sysTemp);
+            syslog (LOG_INFO, "CPU is running cool at %2.2f°c, stopping fan.",sysTemp);
             closelog ();
 
             // Set the 'fanRunning' varible to False
